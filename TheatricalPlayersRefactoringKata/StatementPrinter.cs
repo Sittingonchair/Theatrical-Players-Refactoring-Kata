@@ -8,10 +8,10 @@ namespace TheatricalPlayersRefactoringKata
 {
     public class StatementPrinter
     {
-        private readonly PerformanceCalculater performanceCalculater;
+        private readonly PerformanceCalculator _performanceCalculator;
         public StatementPrinter()
         {
-            performanceCalculater = new PerformanceCalculater();
+            _performanceCalculator = new PerformanceCalculator();
         }
 
         public string Print(Invoice invoice, Dictionary<string, Play> plays)
@@ -25,9 +25,9 @@ namespace TheatricalPlayersRefactoringKata
             foreach (var perf in invoice.Performances)
             {
                 Play play = plays[perf.PlayID];
-                int perfAmount = performanceCalculater.PerfAmountCalculate(play.Type, perf);
+                int perfAmount = _performanceCalculator.PerfAmountCalculate(play.Type, perf);
 
-                volumeCredits += performanceCalculater.CalculateVolumeCredits(perf, play);
+                volumeCredits += _performanceCalculator.CalculateVolumeCredits(perf, play);
 
                 // print line for this order
                 result.AppendLine(string.Format(cultureInfo, "  {0}: {1:C} ({2} seats)", play.Name, Convert.ToDecimal(perfAmount / 100), perf.Audience));
