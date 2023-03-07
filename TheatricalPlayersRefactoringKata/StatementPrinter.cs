@@ -27,13 +27,7 @@ namespace TheatricalPlayersRefactoringKata
                 Play play = plays[perf.PlayID];
                 int perfAmount = performanceCalculater.PerfAmountCalculate(play.Type, perf);
 
-                // add volume credits
-                volumeCredits += Math.Max(perf.Audience - 30, 0);
-                // add extra credit for every ten comedy attendees
-                if (PlayType.Comedy == play.Type)
-                {
-                    volumeCredits += (int)Math.Floor((decimal)perf.Audience / 5);
-                }
+                volumeCredits += performanceCalculater.CalculateVolumeCredits(perf, play);
 
                 // print line for this order
                 result.AppendLine(string.Format(cultureInfo, "  {0}: {1:C} ({2} seats)", play.Name, Convert.ToDecimal(perfAmount / 100), perf.Audience));

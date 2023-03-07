@@ -40,5 +40,17 @@ namespace TheatricalPlayersRefactoringKata
 
             return perfAmount;
         }
+
+        public int CalculateVolumeCredits(Performance perf, Play play)
+        {
+            var credits = Math.Max(perf.Audience - 30, 0);
+            // add extra credit for every ten comedy attendees
+            if (PlayType.Comedy == play.Type)
+            {
+                credits += (int)Math.Floor((decimal)perf.Audience / 5);
+            }
+
+            return credits;
+        }
     }
 }
