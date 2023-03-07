@@ -1,4 +1,4 @@
-namespace TheatricalPlayersRefactoringKata
+namespace TheatricalPlayersRefactoringKata.Models
 {
     public class Performance
     {
@@ -10,8 +10,8 @@ namespace TheatricalPlayersRefactoringKata
 
         public Performance(string playID, int audience)
         {
-            this._playID = playID;
-            this._audience = audience;
+            _playID = playID;
+            _audience = audience;
         }
 
     }

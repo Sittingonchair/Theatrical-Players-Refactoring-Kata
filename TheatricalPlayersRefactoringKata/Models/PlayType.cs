@@ -1,4 +1,4 @@
-﻿namespace TheatricalPlayersRefactoringKata
+﻿namespace TheatricalPlayersRefactoringKata.Models
 {
     public enum PlayType
     {
